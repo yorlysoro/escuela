@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
     $conn->close();
 }
+
+$cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -71,12 +73,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-color: #0056b3;
         }
     </style>
+    <script>
+        function confirmDelete() {
+            return confirm('¿Está seguro de que desea eliminar este alumno?');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Eliminar Alumno</h1>
-        <form method="POST">
-            <input type="text" name="cedula" placeholder="Ingrese la cédula del alumno" required>
+        <form method="POST" onsubmit="return confirmDelete();">
+            <input type="text" name="cedula" placeholder="Ingrese la cédula del alumno" value="<?php echo htmlspecialchars($cedula); ?>" required>
             <button type="submit">Eliminar</button>
         </form>
     </div>
