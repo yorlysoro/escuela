@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <h2>Registrar Alumno</h2>
-        <form method="post" action="./crear.php">
+        <form method="post" action="/crud/alumnos/crear.php">
             <label for="cedula">Cédula:</label>
             <input type="text" id="cedula" name="cedula" required><br><br>
             <label for="nombres">Nombres:</label>

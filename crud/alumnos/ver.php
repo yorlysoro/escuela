@@ -3,8 +3,17 @@ require '../../db/conectar.php';
 
 $conn = conectar();
 
-$sql = "SELECT cedula, nombres, apellidos, genero, fecha_nacimiento, edad, grado, seccion, aula FROM alumnos";
-$result = $conn->query($sql);
+if (isset($_GET['cedula'])) {
+    $cedula = $_GET['cedula'];
+    $sql = "SELECT cedula, nombres, apellidos, genero, fecha_nacimiento, edad, grado, seccion, aula FROM alumnos WHERE cedula = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $cedula);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    echo "Cédula no proporcionada.";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +21,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Alumnos</title>
+    <title>Detalle del Alumno</title>
     <style>
         table {
             width: 100%;
@@ -44,7 +53,7 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
-    <h1>Lista de Alumnos</h1>
+    <h1>Detalle del Alumno</h1>
     <table>
         <tr>
             <th>Cédula</th>
@@ -72,13 +81,13 @@ $result = $conn->query($sql);
                 echo "<td>" . $row["seccion"] . "</td>";
                 echo "<td>" . $row["aula"] . "</td>";
                 echo "<td>
-                        <a class='button edit' href='editar.php?cedula=" . $row["cedula"] . "'>Editar</a>
-                        <a class='button delete' href='eliminar.php?cedula=" . $row["cedula"] . "'>Eliminar</a>
+                        <a class='button edit' href='/crud/alumnos/editar.php?cedula=" . $row["cedula"] . "'>Editar</a>
+                        <a class='button delete' href='/crud/alumnos/eliminar.php?cedula=" . $row["cedula"] . "'>Eliminar</a>
                       </td>";
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='10'>No hay alumnos registrados</td></tr>";
+            echo "<tr><td colspan='10'>No se encontró el alumno con la cédula proporcionada</td></tr>";
         }
         $conn->close();
         ?>

@@ -52,7 +52,7 @@
 <body>
     <div class="container">
         <h2>Modificar Alumno</h2>
-        <form action="modificar.php" method="post">
+        <form action="/crud/alumnos/modificar.php" method="post">
             <label for="cedula">Cédula:</label>
             <input type="text" id="cedula" name="cedula" required>
 

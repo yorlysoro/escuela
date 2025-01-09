@@ -82,9 +82,10 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
 <body>
     <div class="container">
         <h1>Eliminar Alumno</h1>
-        <form method="POST" onsubmit="return confirmDelete();">
+        <form action="/crud/alumnos/eliminar.php" method="POST" onsubmit="return confirmDelete();">
             <input type="text" name="cedula" placeholder="Ingrese la cédula del alumno" value="<?php echo htmlspecialchars($cedula); ?>" required>
             <button type="submit">Eliminar</button>
+            <button type="button" onclick="location.href='/index.php';">Cancelar</button>
         </form>
     </div>
 </body>

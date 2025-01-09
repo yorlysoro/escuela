@@ -14,8 +14,8 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#listar-maestros">Listar</a>
-                <a href="#crear-maestro">Crear</a>
+                <a href="/crud/maestros/listar.php">Listar</a>
+                <a href="/crud/maestros/crear.php">Crear</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -23,8 +23,8 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#listar-alumnos">Listar</a>
-                <a href="#crear-alumno">Crear</a>
+                <a href="/crud/alumnos/listar.php">Listar</a>
+                <a href="/crud/alumnos/crear.php">Crear</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -32,8 +32,8 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#listar-padres">Listar</a>
-                <a href="#crear-padre">Crear</a>
+                <a href="/crud/padres/listar.php">Listar</a>
+                <a href="/crud/padres/listar.php">Crear</a>
             </div>
         </div>
     </div>
