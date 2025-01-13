@@ -1,9 +1,9 @@
 <?php
 function conectar() {
     $servername = "localhost";
-    $username = "tu_usuario";
-    $password = "tu_contraseña";
-    $dbname = "tu_base_de_datos";
+    $username = "admin";
+    $password = "admin";
+    $dbname = "escuela";
 
     // Crear conexión
     $conn = new mysqli($servername, $username, $password, $dbname);

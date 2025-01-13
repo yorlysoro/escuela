@@ -8,14 +8,14 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#home">UTS</a>
+        <a href="./index.php">UTS</a>
         <div class="dropdown">
             <button class="dropbtn">Maestros 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="/crud/maestros/listar.php">Listar</a>
-                <a href="/crud/maestros/crear.php">Crear</a>
+                <a href="./crud/maestros/listar.php">Listar</a>
+                <a href="./crud/maestros/crear.php">Crear</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -23,8 +23,8 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="/crud/alumnos/listar.php">Listar</a>
-                <a href="/crud/alumnos/crear.php">Crear</a>
+                <a href="./crud/alumnos/listar.php">Listar</a>
+                <a href="./crud/alumnos/crear.php">Crear</a>
             </div>
         </div> 
         <div class="dropdown">
@@ -32,8 +32,8 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="/crud/padres/listar.php">Listar</a>
-                <a href="/crud/padres/listar.php">Crear</a>
+                <a href="./crud/padres/listar.php">Listar</a>
+                <a href="./crud/padres/crear.php">Crear</a>
             </div>
         </div>
     </div>

@@ -38,15 +38,73 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
         }
         .container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
         .container h1 {
             margin-top: 0;
@@ -72,6 +130,13 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
         .container form button:hover {
             background-color: #0056b3;
         }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../img/alumnos.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
     </style>
     <script>
         function confirmDelete() {
@@ -80,9 +145,39 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
     </script>
 </head>
 <body>
+    <div class="navbar">
+        <a href="../../index.php">UTS</a>
+        <div class="dropdown">
+            <button class="dropbtn">Maestros 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../maestros/listar.php">Listar</a>
+                <a href="../maestros/crear.php">Crear</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Alumnos 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="listar.php">Listar</a>
+                <a href="crear.php">Crear</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Padres 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../padres/listar.php">Listar</a>
+                <a href="../padres/crear.php">Crear</a>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h1>Eliminar Alumno</h1>
-        <form action="/crud/alumnos/eliminar.php" method="POST" onsubmit="return confirmDelete();">
+        <form action="./eliminar.php" method="POST" onsubmit="return confirmDelete();">
             <input type="text" name="cedula" placeholder="Ingrese la cédula del alumno" value="<?php echo htmlspecialchars($cedula); ?>" required>
             <button type="submit">Eliminar</button>
             <button type="button" onclick="location.href='/index.php';">Cancelar</button>
