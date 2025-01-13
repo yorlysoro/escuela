@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssssisss", $cedula, $nombres, $apellidos, $genero, $fecha_nacimiento, $edad, $grado, $seccion, $aula);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Registro guardado exitosamente'); window.location.href='../../index.php';</script>";
+        echo "<script>alert('Registro guardado exitosamente'); window.location.href='./ver.php?cedula=" . $cedula ."';</script>";
     } else {
         echo "<script>alert('Error al guardar el registro');</script>";
     }
@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="navbar">
-        <a href="../../index.php">UTS</a>
+        <a href="../../index.php">Escuela</a>
         <div class="dropdown">
             <button class="dropbtn">Maestros 
                 <i class="fa fa-caret-down"></i>
@@ -187,7 +187,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="apellidos">Apellidos:</label>
             <input type="text" id="apellidos" name="apellidos" required><br><br>
             <label for="genero">Género:</label>
-            <input type="text" id="genero" name="genero" required><br><br>
+            <select id="genero" name="genero" required>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select><br><br>
             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
             <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
             <label for="edad">Edad:</label>

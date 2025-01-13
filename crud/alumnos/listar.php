@@ -17,7 +17,7 @@ $result = $conn->query($query);
     <style>
 body {
     font-family: Arial, sans-serif;
-    background-image: url('../img/alumnos.png');
+    background-image: url('../../statics/img/alumnos.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -87,7 +87,7 @@ body {
 </head>
 <body>
 <div class="navbar">
-        <a href="./index.php">UTS</a>
+        <a href="../../index.php">Escuela</a>
         <div class="dropdown">
             <button class="dropbtn">Maestros 
                 <i class="fa fa-caret-down"></i>
@@ -122,7 +122,7 @@ body {
 
         if ($result->num_rows > 0) {
             echo '<a href="./crear.php" class="btn btn-primary mb-3">Crear</a>';
-            echo '<table class="table table-striped">';
+            echo '<table class="table table-striped" style="background-color: white;">';
             echo '<thead><tr><th>Cedula</th><th>Nombres</th><th>Apellidos</th><th>Grado</th><th>Seccion</th><th>Aula</th><th>Acciones</th></tr></thead>';
             echo '<tbody>';
             while($row = $result->fetch_assoc()) {

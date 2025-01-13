@@ -11,11 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param('s', $cedula);
 
     if ($stmt->execute()) {
-        echo "<p style='color: green;'>Alumno eliminado con éxito.</p>";
-        header("Location: /index.php");
-        exit();
+        echo "<script>alert('Registro eliminado exitosamente'); window.location.href='./listar.php';</script>";
     } else {
-        echo "<p style='color: red;'>Error al eliminar el alumno.</p>";
+        echo "<script>alert('Error al eliminar el registro');</script>";
     }
 
     $stmt->close();
@@ -34,13 +32,16 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 100vh;
+            background-image: url('../../statics/img/alumnos.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
         .navbar {
             background-color: #333;
@@ -76,7 +77,7 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
         }
         .dropdown-content {
             display: none;
-            position: absolute;
+            position: fixed;
             background-color: #f9f9f9;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -130,6 +131,13 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
         .container form button:hover {
             background-color: #0056b3;
         }
+        .container form .cancel-button {
+            background-color: #6c757d;
+            margin-left: 10px;
+        }
+        .container form .cancel-button:hover {
+            background-color: #5a6268;
+        }
         body {
             font-family: Arial, sans-serif;
             background-image: url('../img/alumnos.png');
@@ -146,7 +154,7 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
 </head>
 <body>
     <div class="navbar">
-        <a href="../../index.php">UTS</a>
+        <a href="../../index.php">Escuela</a>
         <div class="dropdown">
             <button class="dropbtn">Maestros 
                 <i class="fa fa-caret-down"></i>
@@ -179,8 +187,10 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
         <h1>Eliminar Alumno</h1>
         <form action="./eliminar.php" method="POST" onsubmit="return confirmDelete();">
             <input type="text" name="cedula" placeholder="Ingrese la cédula del alumno" value="<?php echo htmlspecialchars($cedula); ?>" required>
-            <button type="submit">Eliminar</button>
-            <button type="button" onclick="location.href='/index.php';">Cancelar</button>
+            <div style="display: flex;">
+                <button type="submit">Eliminar</button>
+                <button type="button" class="cancel-button" onclick="location.href='./listar.php';">Cancelar</button>
+            </div>
         </form>
     </div>
 </body>

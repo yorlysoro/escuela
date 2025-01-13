@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro UTS</title>
+    <title>Registro Escuela</title>
     <link rel="stylesheet" href="statics/css/styles.css">
 </head>
 <body>
     <div class="navbar">
-        <a href="./index.php">UTS</a>
+        <a href="./index.php">Escuela</a>
         <div class="dropdown">
             <button class="dropbtn">Maestros 
                 <i class="fa fa-caret-down"></i>
