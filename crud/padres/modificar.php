@@ -171,10 +171,19 @@
                 <a href="../alumnos/crear.php">Crear</a>
             </div>
         </div> 
-</div>
+        <div class="dropdown">
+            <button class="dropbtn">Padres 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../padres/listar.php">Listar</a>
+                <a href="../padres/crear.php">Crear</a>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h2>Modificar Padre</h2>
-        <form action="/crud/padres/modificar.php" method="post">
+        <form action="./modificar.php" method="post">
             <label for="cedula">Cédula:</label>
             <input type="text" id="cedula" name="cedula" required>
 

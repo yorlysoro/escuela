@@ -183,7 +183,7 @@
     </div>
     <div class="container">
         <h2>Modificar Maestro</h2>
-        <form action=<?php echo "./modificar.php?cedula=" . $cedula ?> method="post">
+        <form action="./modificar.php" method="post">
             <label for="cedula">Cédula:</label>
             <input type="text" id="cedula" name="cedula" required>
 

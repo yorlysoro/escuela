@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <div class="container">
         <h2>Registrar Padre</h2>
-        <form method="post" action="/crud/padres/crear.php">
+        <form method="post" action="./crear.php">
             <label for="cedula">Cédula:</label>
             <input type="text" id="cedula" name="cedula" required><br><br>
             <label for="nombres">Nombres:</label>

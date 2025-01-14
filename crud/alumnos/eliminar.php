@@ -138,13 +138,6 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
         .container form .cancel-button:hover {
             background-color: #5a6268;
         }
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('../img/alumnos.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
     </style>
     <script>
         function confirmDelete() {

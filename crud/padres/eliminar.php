@@ -138,13 +138,6 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
         .container form .cancel-button:hover {
             background-color: #5a6268;
         }
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('../img/alumnos.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
     </style>
     <script>
         function confirmDelete() {
@@ -185,7 +178,7 @@ $cedula = isset($_GET['cedula']) ? $_GET['cedula'] : '';
     </div>
     <div class="container">
         <h1>Eliminar Padre</h1>
-        <form action="/crud/padres/eliminar.php" method="POST" onsubmit="return confirmDelete();">
+        <form action="./eliminar.php" method="POST" onsubmit="return confirmDelete();">
             <input type="text" name="cedula" placeholder="Ingrese la cédula del padre" value="<?php echo htmlspecialchars($cedula); ?>" required>
             <div style="display: flex;">
                 <button type="submit">Eliminar</button>

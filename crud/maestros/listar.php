@@ -121,22 +121,22 @@ body {
         <?php
 
         if ($result->num_rows > 0) {
-            echo '<a href="/crud/maestros/crear.php" class="btn btn-primary mb-3">Crear</a>';
+            echo '<a href="./crear.php" class="btn btn-primary mb-3">Crear</a>';
             echo '<table class="table table-striped" style="background-color: white;">';
             echo '<thead><tr><th>Cedula</th><th>Nombres</th><th>Apellidos</th><th>Grado</th><th>Seccion</th><th>Aula</th><th>Acciones</th></tr></thead>';
             echo '<tbody>';
             while($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td><a href="/crud/maestros/ver.php?cedula=' . $row["cedula"] . '">' . $row["cedula"] . '</a></td>';
+                echo '<td><a href="/./ver.php?cedula=' . $row["cedula"] . '">' . $row["cedula"] . '</a></td>';
                 echo '<td>' . $row["nombres"] . '</td>';
                 echo '<td>' . $row["apellidos"] . '</td>';
                 echo '<td>' . $row["grado"] . '</td>';
                 echo '<td>' . $row["seccion"] . '</td>';
                 echo '<td>' . $row["aula"] . '</td>';
                 echo '<td>';
-                echo '<a href="/crud/maestros/modificar.php?cedula=' . $row["cedula"] . '" class="btn btn-warning btn-sm">Editar</a> ';
-                echo '<a href="/crud/maestros/eliminar.php?cedula=' . $row["cedula"] . '" class="btn btn-danger btn-sm">Eliminar</a>';
-                echo '<a href="/" class="btn btn-primary btn-sm">Salir</a>';
+                echo '<a href="./modificar.php?cedula=' . $row["cedula"] . '" class="btn btn-warning btn-sm">Editar</a> ';
+                echo '<a href="./eliminar.php?cedula=' . $row["cedula"] . '" class="btn btn-danger btn-sm">Eliminar</a>';
+                echo '<a href="../../index.php" class="btn btn-primary btn-sm">Salir</a>';
                 echo '</td>';
                 echo '</tr>';
             }
